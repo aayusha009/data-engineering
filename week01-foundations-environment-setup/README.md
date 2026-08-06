@@ -1,11 +1,11 @@
 # Week 1: Foundations + Environment Setup
 
 ## What I did this week
-Learned the modern data stack flow: sources to ingestion to load to dbt run to query.
-Reviewed key distinctions: data engineer vs analytics engineer vs analyst vs ML engineer, batch vs streaming, warehouse vs lake vs lakehouse, OLTP vs OLAP, row vs columnar storage.
-Set up local environment: Homebrew, Git, Python 3.11, VS Code, Docker Desktop, PostgreSQL, pgAdmin.
-Created GitHub repo (data engineering) to track all 10 weeks of work.
-Drew architecture diagram: Sources to Raw storage to Warehouse to dbt models to Dashboards.
+1. Learned the modern data stack flow: sources to ingestion to load to dbt run to query.
+2. Understood that data engineers build and maintain pipelines, analytics engineer take raw data in warehouse and model it to clean and tested tables, data analysts query clean tables to answer business questions and create dashboards, reports, ML engineers make models on top of clean data. 
+3. Set up local environment: Homebrew, Git, Python 3.11, VS Code, Docker Desktop, PostgreSQL, pgAdmin.
+4. Created GitHub repo (data engineering) to track all 10 weeks of work.
+5. Drew architecture diagram: Sources to Raw storage to Warehouse to dbt models to Dashboards.
 
 ## Architecture Overview
 
@@ -25,12 +25,11 @@ Query: A BI tool such as Tableau or Power BI queries the clean dbt models and tu
 | Git | 2.55.0 |
 | Python | 3.11 |
 | Docker | 29.6.2 |
-| PostgreSQL | 17 (EDB install) |
+| PostgreSQL | 17 |
 | VS Code | 1.131.0 |
 | pgAdmin | 9.3 |
 
 ## Deliverables
-GitHub repo with README: done
-Environment installed and verified (see tech stack screenshots): done
-Architecture diagram: done
-This README: done
+1. GitHub repo with README: done
+2. Environment installed and verified (see tech stack screenshots): done
+3. Architecture diagram: done
