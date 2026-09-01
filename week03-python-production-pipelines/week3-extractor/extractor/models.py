@@ -6,7 +6,7 @@ from pydantic import BaseModel, ValidationError
 # UserRecord is the "template" of our data. It defines the fields and their types.
 
 class UserRecord(BaseModel):
-    id: int         # id number nai huнu parcha
+    id: int         # id number 
     name: str        # name text 
     email: str        # email text 
     phone: str        # phone text 
