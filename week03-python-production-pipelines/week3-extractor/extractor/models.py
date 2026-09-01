@@ -7,9 +7,9 @@ from pydantic import BaseModel, ValidationError
 
 class UserRecord(BaseModel):
     id: int         # id number nai huнu parcha
-    name: str        # name text huनu parcha
-    email: str        # email text huनu parcha
-    phone: str        # phone text huनu parcha
+    name: str        # name text 
+    email: str        # email text 
+    phone: str        # phone text 
 
 def validate_users(raw_users: list) -> list:
     valid = []                      # keeping correct records in list
