@@ -2,8 +2,7 @@
 
 Week 1: Foundations + Environment Setup
 
-Learned the modern data stack flow: 
-- sources -> ingestion -> load -> dbt run -> query, 
+Learned the modern data stack flow: sources -> ingestion -> load -> dbt run -> query, 
 - Set up my local environment (Git, Python, Docker, PostgreSQL, VS Code, pgAdmin), created this GitHub repo, and drew out the architecture diagram for modern data sracj
 
 Week 2: SQL for Data Engineering
