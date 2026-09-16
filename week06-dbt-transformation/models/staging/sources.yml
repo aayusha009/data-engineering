@@ -1,0 +1,12 @@
+version: 2
+sources:
+  - name: raw
+    database: my_db
+    schema: main
+    tables:
+      - name: orders
+        description: "Raw orders table loaded from the Week 5 Parquet file."
+        loaded_at_field: order_date
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}

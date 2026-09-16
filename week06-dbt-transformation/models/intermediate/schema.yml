@@ -1,0 +1,18 @@
+version: 2
+models:
+  - name: int_orders_cleaned
+    description: "Staged orders with text fields standardized and invalid rows (null id, bad quantity, missing total) filtered out."
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        tests:
+          - not_null
+      - name: product_name
+        tests:
+          - not_null
+      - name: quantity
+        tests:
+          - not_null
