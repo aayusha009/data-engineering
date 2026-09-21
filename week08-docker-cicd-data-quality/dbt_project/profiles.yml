@@ -1,0 +1,12 @@
+week8_pipeline:
+  target: ci
+  outputs:
+    ci:
+      type: postgres
+      host: localhost
+      user: ci
+      password: ci
+      port: 5432
+      dbname: ci_db
+      schema: public
+      threads: 1

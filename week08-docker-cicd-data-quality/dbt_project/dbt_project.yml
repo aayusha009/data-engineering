@@ -1,0 +1,11 @@
+name: 'week8_pipeline'
+version: '1.0.0'
+config-version: 2
+profile: 'week8_pipeline'
+
+model-paths: ["models"]
+
+models:
+  week8_pipeline:
+    staging:
+      materialized: view

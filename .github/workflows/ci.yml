@@ -50,4 +50,4 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install dbt-postgres
-      - run: dbt test --project-dir dbt_project
+      - run: dbt build --project-dir dbt_project --profiles-dir dbt_project
