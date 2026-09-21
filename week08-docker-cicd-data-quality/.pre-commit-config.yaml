@@ -1,0 +1,14 @@
+# Runs automatically every time you type `git commit`, before the commit happens.
+# Setup once: pip install pre-commit && pre-commit install
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9              # pinned version of the tool, for reproducibility
+    hooks:
+      - id: ruff              # lints Python (catches bugs/style issues)
+      - id: ruff-format       # auto-formats Python
+
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 3.1.1
+    hooks:
+      - id: sqlfluff-lint
+        files: \.sql$         # only run this hook against .sql files

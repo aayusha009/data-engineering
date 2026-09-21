@@ -1,0 +1,5 @@
+# Files/folders git should never track or commit
+__pycache__/    # Python's compiled bytecode cache — regenerated automatically
+*.pyc           # compiled Python files
+.venv/          # local virtual environment folder, if you make one
+.env            # your REAL secrets file — must never be committed

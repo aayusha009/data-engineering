@@ -1,0 +1,5 @@
+# One package per line — pip installs all of these when the Dockerfile runs
+# `pip install -r requirements.txt`
+pytest       # for running our unit tests
+ruff         # Python linter/formatter
+dbt-postgres # dbt, configured to talk to a Postgres warehouse

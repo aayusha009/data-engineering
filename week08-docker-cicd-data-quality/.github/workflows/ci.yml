@@ -1,0 +1,48 @@
+name: CI                    # just a label, shown in the Actions tab on GitHub
+
+on:
+  push:                     # run this every time someone pushes code
+  pull_request:
+    branches: [main]        # also run when a PR is opened/updated against main
+
+jobs:
+  # Job 1: checks Python code style
+  lint:
+    runs-on: ubuntu-latest   # fresh Ubuntu machine for this job
+    steps:
+      - uses: actions/checkout@v4          # download your repo's code onto the machine
+      - uses: actions/setup-python@v5      # install Python
+        with:
+          python-version: "3.11"
+      - run: pip install ruff              # install the linter
+      - run: ruff check .                  # actually run the check
+
+  # Job 2: runs your unit tests
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt   # install everything your project needs
+      - run: pytest -v                          # run the tests
+
+  # Job 3: runs dbt tests against a real (throwaway) database
+  dbt-build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:                       # spin up a temporary Postgres just for this job
+        image: postgres:16
+        env:
+          POSTGRES_USER: ci
+          POSTGRES_PASSWORD: ci
+          POSTGRES_DB: ci_db
+        ports: ["5432:5432"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install dbt-postgres
+      - run: dbt test --project-dir dbt_project   # run the actual dbt tests

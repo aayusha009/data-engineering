@@ -65,7 +65,6 @@ Say-out-loud definitions if asked (Section G, Q20 style):
 ## 2. docker-compose.yml
 
 ```yaml
-
 services:
   pipeline:
     build: .
