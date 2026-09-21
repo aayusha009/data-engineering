@@ -1,23 +1,29 @@
-name: CI                    # just a label, shown in the Actions tab on GitHub
+name: CI
 
 on:
-  push:                     # run this every time someone pushes code
+  push:
+    paths:
+      - 'week08-docker-cicd-data-quality/**'
   pull_request:
-    branches: [main]        # also run when a PR is opened/updated against main
+    branches: [main]
+    paths:
+      - 'week08-docker-cicd-data-quality/**'
+
+defaults:
+  run:
+    working-directory: week08-docker-cicd-data-quality
 
 jobs:
-  # Job 1: checks Python code style
   lint:
-    runs-on: ubuntu-latest   # fresh Ubuntu machine for this job
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4          # download your repo's code onto the machine
-      - uses: actions/setup-python@v5      # install Python
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install ruff              # install the linter
-      - run: ruff check .                  # actually run the check
+      - run: pip install ruff
+      - run: ruff check .
 
-  # Job 2: runs your unit tests
   test:
     runs-on: ubuntu-latest
     steps:
@@ -25,14 +31,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -r requirements.txt   # install everything your project needs
-      - run: pytest -v                          # run the tests
+      - run: pip install -r requirements.txt
+      - run: pytest -v
 
-  # Job 3: runs dbt tests against a real (throwaway) database
   dbt-build:
     runs-on: ubuntu-latest
     services:
-      postgres:                       # spin up a temporary Postgres just for this job
+      postgres:
         image: postgres:16
         env:
           POSTGRES_USER: ci
@@ -45,4 +50,4 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install dbt-postgres
-      - run: dbt test --project-dir dbt_project   # run the actual dbt tests
+      - run: dbt test --project-dir dbt_project
