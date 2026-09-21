@@ -1,3 +1,5 @@
+# trigger CI
+
 # The actual "pipeline" logic. Kept tiny on purpose — this project is about
 # practicing the tooling (Docker/CI/tests) around code, not complex logic.
 
