@@ -1,4 +1,4 @@
-## week 11 kafka-streaming
+## week 10 kafka-streaming
 
 This is a simple hands on demo of Apache Kafka.
 
