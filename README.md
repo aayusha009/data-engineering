@@ -1,4 +1,4 @@
-# Learning outcomes
+# Internship learning outcomes
 
 Week 1: Foundations + Environment Setup
 
